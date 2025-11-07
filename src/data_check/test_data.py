@@ -73,7 +73,7 @@ def test_similar_neigh_distrib(data: pd.DataFrame, ref_data: pd.DataFrame, kl_th
     # Use newer pandas value_counts with normalize=True for probability distribution
     dist1 = data['neighbourhood_group'].value_counts(normalize=True).sort_index()
     dist2 = ref_data['neighbourhood_group'].value_counts(normalize=True).sort_index()
-    
+
     # Ensure distributions sum to 1 and have matching indices
     assert np.isclose(dist1.sum(), 1.0)
     assert np.isclose(dist2.sum(), 1.0)
@@ -83,7 +83,12 @@ def test_similar_neigh_distrib(data: pd.DataFrame, ref_data: pd.DataFrame, kl_th
     kl_div = scipy.stats.entropy(dist1, dist2, base=2)
     assert np.isfinite(kl_div) and kl_div < kl_threshold
 
+    ########################################################
+    # Implement here test_row_count and test_price_range   #
+    ########################################################
 
-########################################################
-# Implement here test_row_count and test_price_range   #
-########################################################
+def test_row_count(data):
+    assert 15000 < data.shape[0] < 1000000
+
+def test_price_range(data, min_price, max_price):
+    assert data["price"].between(min_price, max_price).all()
