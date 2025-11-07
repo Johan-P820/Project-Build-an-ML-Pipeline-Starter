@@ -50,47 +50,47 @@ def go(args):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="A very basic data cleaning")
-  
+
     parser.add_argument(
         "--input_artifact",
-        type = str,
-        help = "Name of input artifact",
-        required = True
+        type=str,
+        help="Input artifact to be cleaned",
+        required=True
     )
 
     parser.add_argument(
-        "--output_artifact", 
-        type = str,
-        help = " the name for the output artifact",
-        required = True
+        "--output_artifact",
+        type=str,
+        help="Output artifact with the cleaned data",
+        required=True
     )
 
     parser.add_argument(
-        "--output_type", 
-        type = str,
-        help = " the name for the output artifact",
-        required = True
+        "--output_type",
+        type=str,
+        help="Type of the output dataset",
+        required=True
     )
 
     parser.add_argument(
-        "--output_description", 
-        type = str,
-        help = "a description of the output artifact",
-        required = True
+        "--output_description",
+        type=str,
+        help="Description of the output data",
+        required=True
     )
 
     parser.add_argument(
-        "--min_price", 
-        type = int,
-        help = "the minimum price to consider",
-        required = True
+        "--min_price",
+        type=float,
+        help="Minimum house price considered valid",
+        required=True
     )
 
     parser.add_argument(
         "--max_price",
-        type = int,
-        help = "the maximum price to consider",
-        required = True
+        type=float,
+        help="Maximum house price considered valid",
+        required=True
     )
 
 
